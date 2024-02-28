@@ -1,4 +1,5 @@
 import json
+import base64
 
 import requests
 from django.http import HttpResponse
@@ -25,17 +26,17 @@ class DRMProxyView(APIView):
         asset_id = kwargs.get('asset_id')
         access_token = self.request.query_params.get("access_token", "")
         body = {
-            "player_payload": self.request.data,
+            "player_payload":  base64.b64encode(self.request.data).decode('utf-8'),
             "license_specs": {
                 "security_level": 1,
                 "required_output_protection": {
-                    "hdcp": "HDCP_NO_DIGITAL_OUTPUT"
+                    "hdcp": "HDCP_V1"
                 }
             }
         }
         license_url = f"https://8bde-49-43-249-218.ngrok-free.app/api/v1/k6gdyc/assets/{asset_id}/drm_license/?access_token={access_token}"
 
-        license_response = requests.post(license_url, data=self.request.data, headers={"content-type": "application/octet-stream"} )
+        license_response = requests.post(license_url, data=json.dumps(body), headers={"content-type": "application/json"} )
         license_data = license_response.content
         license_response.raise_for_status()
 
