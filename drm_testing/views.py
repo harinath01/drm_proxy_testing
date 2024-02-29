@@ -36,7 +36,7 @@ class DRMProxyView(APIView):
                     {'track_type': 'AUDIO', 'security_level': 1, 'required_output_protection': {'hdcp': 'HDCP_V1'}}],
             }
         }
-        license_url = f"https://35ce-183-82-205-19.ngrok-free.app/api/v1/k6gdyc/assets/{asset_id}/drm_license/?access_token={access_token}"
+        license_url = f"https://app.tpstreams.com/api/v1/6eafqn/assets/{asset_id}/drm_license/?access_token={access_token}"
 
         license_response = requests.post(license_url, data=json.dumps(body),
                                          headers={"content-type": "application/json"})

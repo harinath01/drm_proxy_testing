@@ -25,7 +25,7 @@
             var player = this;
             player.eme();
             player.src({
-                src: isRequestFromSafari() ? "https://d2aozw2qj8vdwc.cloudfront.net/transcoded/7Dapd3BE4tA/video.m3u8" : "https://d2aozw2qj8vdwc.cloudfront.net/transcoded/7Dapd3BE4tA/video.mpd",
+                src: isRequestFromSafari() ? "https://d384padtbeqfgy.cloudfront.net/transcoded/8eaHZjXt6km/video.m3u8" : "https://d384padtbeqfgy.cloudfront.net/transcoded/8eaHZjXt6km/video.mpd",
                 type: isRequestFromSafari() ? "application/x-mpegURL" : "application/dash+xml",
                 keySystems: {
                     "com.widevine.alpha": {
@@ -35,7 +35,7 @@
                             console.log(keyMessage)
 
                             videojs.xhr({
-                                url: "http://127.0.0.1:9000/7Dapd3BE4tA/drm_proxy/?access_token=345a6e6d-6515-41cc-81bc-4689e46f1d86",
+                                url: "http://127.0.0.1:9000/8eaHZjXt6km/drm_proxy/?access_token=16b608ba-9979-45a0-94fb-b27c1a86b3c1",
                                 method: "POST",
                                 body: body,
                                 responseType: "arraybuffer",
