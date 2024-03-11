@@ -61,11 +61,11 @@
                             return new TextDecoder("utf-16").decode(initData.slice(16));
                         },
                         getLicense: function (emeOptions, contentId, keyMessage, callback) {
-                            var headers = { "Content-type": "application/json" };
-                            var body = JSON.stringify({ spc: base64EncodeUint8Array(keyMessage) });
+                            var headers = { "Content-type": "application/octet-stream" };
+                            var body = keyMessage;
 
                             videojs.xhr({
-                                url: "https://8bde-49-43-249-218.ngrok-free.app/api/v1/k6gdyc/assets/7Dapd3BE4tA/drm_license/?access_token=345a6e6d-6515-41cc-81bc-4689e46f1d86&drm_type=fairplay",
+                                url: "http://127.0.0.1:9000/8eaHZjXt6km/drm_proxy/?access_token=16b608ba-9979-45a0-94fb-b27c1a86b3c1&drm_type=fairplay",
                                 method: "POST",
                                 body: body,
                                 responseType: "arraybuffer",
